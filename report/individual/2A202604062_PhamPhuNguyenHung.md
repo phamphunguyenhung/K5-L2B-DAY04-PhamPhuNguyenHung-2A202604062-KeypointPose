@@ -31,18 +31,16 @@ Cách đổi cờ `occluded` / `outside` cho **một điểm** trên phiên bả
 
 | Nhóm ảnh | Số ảnh | Số skeleton đã gán | Số người dưới 60 px (không gán) | Số poster / gương / màn hình bỏ qua | Thời gian (phút) |
 |---|---:|---:|---:|---:|---:|
-| `easy` | 5 | 5 | 0 | ___ | ___ |
-| `occluded` | 3 | 6 | 0 | ___ | ___ |
-| `back` | 2 | 4 | 0 | ___ | ___ |
-| `small` | 1 | 1 | 2 | ___ | ___ |
-| `crowd` | 1 | 3 | 0 | ___ | ___ |
-| `faces` | 8 | 8 | — | — | |
+| `easy` | 5 | 5 | 0 | 0 | gộp trong CP1 (39) |
+| `occluded` | 3 | 6 | 0 | 0 | gộp trong CP1 (39) |
+| `back` | 2 | 4 | 0 | 0 | gộp trong CP1 (39) |
+| `small` | 1 | 1 | 2 | 0 | gộp trong CP1 (39) |
+| `crowd` | 1 | 3 | 0 | 0 | gộp trong CP1 (39) |
+| `faces` | 8 | 8 | — | — | CP2 (45) |
 
 - Số ảnh người đã xong ở mốc phút 105: 10 / 10
 - Thời gian thực tế (phút): CP1 39 · CP2 45 · CP3 30 (phần này cần bạn ghi theo đồng hồ của mình, công cụ không đo được thời gian gán tay)
-- Ảnh tốn thời gian nhất là ảnh nào, vì sao?
-
-...
+- Ảnh tốn thời gian nhất là `000000332273.jpg` (nhóm `crowd`): có 3 người, nhiều skeleton nhất, các người chồng lên nhau nên phải chỉnh nhiều điểm.
 
 ## 3. Bảng ca khó (CP1, CP2)
 
