@@ -57,7 +57,7 @@ Mỗi điểm bạn phân vân một dòng, nhất là phân vân giữa `v = 1`
 Đi từ ảnh cuối về ảnh đầu. 5 ảnh người (ít nhất 2 ảnh `back` hoặc `crowd`) và 3 ảnh mặt. Ít nhất 8 dòng, kể cả dòng `ok`. Ghi lỗi trước, sửa sau.
 
 Mã lỗi dùng đúng một trong: `lr_swap`, `vis_flag`, `position`, `missing`, `extra`, `ok`.
-không có
+không có lỗi phát hiện thêm, chỉ phát hiện sửa nhẹ phần ảnh 3 thôi
 
 Tổng hợp số lỗi theo mã: 0
 
@@ -138,7 +138,6 @@ Nguồn ảnh: COCO val2017 / Wikimedia Commons.
 
 3. Nhãn của bạn đi vào model ở đâu? Chọn một lỗi bạn đã sửa và nói nó sẽ làm model học sai thế nào (heatmap, trọng số trong loss, hay bước lật ảnh):
 Ở Job 13, ảnh số 3, tôi kiểm tra lại và sửa nhãn visibility của các điểm mắt từ v=2 (nhìn thấy rõ) sang v=1 (bị che khuất) bằng phím Q, vì mắt bị kính râm che. Nếu giữ v=2, model sẽ học sai trọng số trong loss, coi các điểm mắt ước lượng là điểm nhìn thấy rõ, làm giảm độ chính xác khi dự đoán landmark.
-   ...
 
 ## 8. Khó khăn và lỗi kỹ thuật
 
