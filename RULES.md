@@ -15,10 +15,15 @@ Mỗi học viên nhận 12 ảnh người chia ngẫu nhiên theo MSSV (`python
 - Trợ lý AI dạng chat để tra cứu khái niệm (heatmap, OKS, định dạng COCO Keypoints), hỏi cách dùng CVAT, sửa câu chữ trong báo cáo.
 - AI để giải thích lỗi khi chạy `src/check_submission.py`.
 - Demo model pose chạy trên trình duyệt (ví dụ MediaPipe Studio) **chỉ** cho bonus B3, chỉ để so sánh, không đưa kết quả vào job.
+- **Công cụ pre-label chạy local do chính bạn xây dựng** (theo cho phép của giảng viên). Công cụ này được tính là một kỹ năng của bài lab. Điều kiện:
+  - Chạy hoàn toàn trên máy bạn, dữ liệu không rời máy. Không dùng model hay API trên cloud.
+  - Điểm do công cụ sinh ra chỉ là **nháp**. Bạn phải kiểm tra và chỉnh tay từng điểm: tên, trái/phải, vị trí, cờ `v`. Nộp điểm chưa kiểm tra là vi phạm.
+  - Ghi trong mục **9. Tài liệu tham khảo** và mục **7. Tự đánh giá** của báo cáo: model nào, cách chạy, công cụ đã sinh bao nhiêu điểm, bao nhiêu điểm bạn phải sửa (theo tên hoặc theo cờ), và vì sao bạn tin kết quả sau khi sửa.
+  - Coach có thể yêu cầu chạy lại công cụ trên một ảnh bất kỳ để kiểm tra.
 
 Không được dùng:
 
-- Model pose, auto-annotation (CVAT "From model", Nuclio, Segment Anything…) hay bất kỳ công cụ nào để **sinh điểm** rồi nộp như nhãn của mình. Bài lab đo chính kỹ năng gán tay của bạn.
+- Model pose, auto-annotation (CVAT "From model", Nuclio, Segment Anything…) hoặc bất kỳ công cụ nào để **sinh điểm rồi nộp nguyên bản** như nhãn của mình, tức là không kiểm tra và chỉnh tay. Công cụ local ở trên được phép, nhưng phải kèm bước kiểm tra. Các công cụ auto-annotation có sẵn trong CVAT vẫn cấm.
 - Chép tọa độ từ annotation COCO gốc hay từ bài của người khác.
 - AI để viết hộ phần **Bảng ca khó**, **Tự review** và **Tự đánh giá** (mục 3, 4, 7 của báo cáo). Các mục này phải dựa trên job thật của bạn.
 
