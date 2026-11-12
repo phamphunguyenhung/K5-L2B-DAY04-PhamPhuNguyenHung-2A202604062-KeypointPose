@@ -1,7 +1,5 @@
 # Báo cáo cá nhân — PhamPhuNguyenHung-2A202604062
 
-Đổi tên file theo quy tắc `MSSV_HoTen.md`. Ví dụ: `20241234_NguyenVanAn.md`.
-
 Dữ liệu: 12 ảnh người COCO val2017 (Lin et al., 2014) và 8 ảnh chân dung Wikimedia Commons, chỉ dùng trong lớp.
 
 ## 0. Thông tin học viên
@@ -69,27 +67,44 @@ kính râm ở job 13 lí do chọn v=1 là vì thầy bảo trong buổi học 
 
 ## 5. Kiểm file xuất và kết quả tự kiểm (CP4)
 
-Tự kiểm tay trong file JSON:
+Tự kiểm trong file JSON (đọc bằng script: số phần tử, `num_keypoints`, giá trị `v`). Kiểm mắt thường các cảnh báo do người làm bài thực hiện.
 
 | File | Người / mặt kiểm (ảnh, thứ tự) | Số phần tử `keypoints` | Điểm `outside` ra `v = 0`, `occluded` ra `v = 1`? | `num_keypoints` khớp? |
 |---|---|---:|---|---|
-| `HoVaTen_persons.zip` | | | | |
-| `HoVaTen_persons.zip` | | | | |
-| `HoVaTen_faces.zip` | | | | |
+| `PhamPhuNguyenHung_persons.zip` | 19 người, 12 ảnh (toàn bộ) | 51 | Có: v=0 có 9 điểm, v=1 có 32 điểm | Có (19/19) |
+| `PhamPhuNguyenHung_faces.zip` | 8 mặt, 8 ảnh (toàn bộ) | 39 | Có: v=1 có 10 điểm, không có v=0 | Có (8/8) |
 
-Sau khi xuất, CVAT ghi `occluded` thành `v = ___` và `outside` thành `v = ___`. Tọa độ của điểm `outside` trong file là `0, 0` hay tọa độ cũ? ___
+Sau khi xuất, CVAT ghi `occluded` thành `v = 1` và `outside` thành `v = 0`. Tọa độ của điểm `outside` trong file là tọa độ cũ, không phải `0, 0` (theo ghi chú của script: CVAT 2.x xuất như vậy, điểm `v = 0` bị bỏ qua khi huấn luyện và chấm).
 
 Hai job đã chuyển sang completed trên CVAT? Có (stage `acceptance`, state `completed`, kiểm lại qua API). Đã export lại sau khi finish: số liệu không đổi.
 
-Dán phần **TÓM TẮT** in ra từ `src/check_submission.py`:
+Tóm tắt in ra từ `src/check_submission.py`:
 
 ```text
-(dán ở đây)
+- File person: PhamPhuNguyenHung_persons.zip
+  Số ảnh: 12 · số skeleton `person`: 19 · mỗi annotation 51 số
+  Skeleton theo ảnh: 000000023424=2, 000000054909=2, 000000078170=2, 000000157271=2, 000000241837=1, 000000292999=1, 000000308257=1, 000000323705=1, 000000332273=3, 000000336477=1, 000000365099=1, 000000521817=2
+  Cờ v: v=2 282 (87%) · v=1 32 (10%) · v=0 9 (3%)
+  num_keypoints trung bình: 16.5
+- File face: PhamPhuNguyenHung_faces.zip
+  Số ảnh: 8 · số skeleton `face`: 8 · mỗi annotation 39 số
+  Skeleton theo ảnh: face_105668=1, face_223746=1, face_300399=1, face_324513=1, face_342273=1, face_425647=1, face_575921=1, face_79367=1
+  Cờ v: v=2 94 (90%) · v=1 10 (10%) · v=0 0 (0%)
+  num_keypoints trung bình: 13.0
+- Số [LỖI]: 0 · số [CẢNH BÁO]: 8
+Kết quả: ĐẠT (đọc lại từng cảnh báo ở trên)
 ```
 
-Các `[CẢNH BÁO]` còn giữ nguyên và lý do:
+Các `[CẢNH BÁO]` và quyết định:
 
-...
+| Ảnh | Người | Cảnh báo | Quyết định | Lý do |
+|---|---|---|---|---|
+| 000000023424.jpg | #1, #2 | Mũi và hai mắt `v=2` nhưng các điểm `left` nằm bên trái ảnh (giống quay lưng) | Giữ nguyên | Đã kiểm tra bằng mắt: hướng người đúng |
+| 000000054909.jpg | #1, #2 | Như trên | Giữ nguyên | Đã kiểm tra bằng mắt: hướng người đúng |
+| 000000157271.jpg | #2 | Như trên | Giữ nguyên | Đã kiểm tra bằng mắt: hướng người đúng |
+| 000000308257.jpg | #1 | Cặp ankle ngược phía các cặp còn lại | Giữ nguyên | Đã kiểm tra bằng mắt: chân bước bắt chéo |
+| 000000332273.jpg | #3 | Cặp ankle ngược phía các cặp còn lại | Giữ nguyên | Đã kiểm tra bằng mắt: chân bước bắt chéo |
+| 000000521817.jpg | #1 | Cặp ear và knee ngược phía các cặp còn lại | Giữ nguyên | Đã kiểm tra bằng mắt: vị trí đúng |
 
 ## 6. Ảnh chụp màn hình
 
@@ -133,42 +148,7 @@ Nguồn ảnh: COCO val2017 / Wikimedia Commons.
 
 ## Bonus (nếu làm)
 
-### B1 — 3 ảnh người khó thêm
-
-| Ảnh | Số skeleton | Số người dưới 60 px | Ca khó nhất |
-|---|---:|---:|---|
-| | | | |
-| | | | |
-| | | | |
-
-Kết quả `src/check_submission.py` cho `HoVaTen_bonus_persons.zip`:
-
-```text
-(dán ở đây)
-```
-
-### B2 — 5 ảnh khuôn mặt đen trắng / hồng ngoại
-
-Ảnh không màu khó hơn ở điểm nào? Kính râm trên ảnh hồng ngoại có còn là `v = 1` không?
-
-...
-
-### B3 — Model so với nhãn của tôi (không tính điểm)
-
-- Demo đã dùng:
-- Ảnh đã thử:
-
-1. Model có trả điểm cho khớp bị che, hay khớp ngoài ảnh không? Confidence ở các điểm đó thế nào?
-
-   ...
-
-2. Với người quay lưng, model có đổi trái/phải không?
-
-   ...
-
-3. Bộ điểm của model có giống 17 điểm COCO không?
-
-   ...
+Không làm phần bonus.
 
 ## 9. Tài liệu tham khảo và công cụ AI đã dùng
 
