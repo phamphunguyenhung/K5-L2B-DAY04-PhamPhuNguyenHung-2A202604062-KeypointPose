@@ -9,7 +9,7 @@ Dữ liệu: 12 ảnh người COCO val2017 (Lin et al., 2014) và 8 ảnh chân
 - Họ tên: Phạm Phú Nguyên Hùng
 - MSSV: 2A202604062
 - Email: hungphamphunguyen@gmail.com
-- Link repository: https://github.com/phamphunguyenhung/K5-L2-DAY04-PhamPhuNguyenHung-2A202604062-KeypointPose
+- Link repository: https://github.com/phamphunguyenhung/K5-L2B-DAY04-PhamPhuNguyenHung-2A202604062-KeypointPose
 - Phiên bản CVAT (Help → About): 2.74.1 (đọc từ API /api/server/about)
 - Máy: Windows 11 Pro · RAM 16 GB (Docker Desktop được cấp 7.7 GB) · chạy CVAT chế độ đầy đủ
 - Bộ ảnh (`src/exports/assignment.json` do `lab.py setup` tạo): có
