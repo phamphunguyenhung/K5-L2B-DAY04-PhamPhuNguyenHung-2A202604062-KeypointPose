@@ -79,7 +79,7 @@ Tự kiểm tay trong file JSON:
 
 Sau khi xuất, CVAT ghi `occluded` thành `v = ___` và `outside` thành `v = ___`. Tọa độ của điểm `outside` trong file là `0, 0` hay tọa độ cũ? ___
 
-Hai job đã chuyển sang completed trên CVAT? Có / Không
+Hai job đã chuyển sang completed trên CVAT? Có (stage `acceptance`, state `completed`, kiểm lại qua API). Đã export lại sau khi finish: số liệu không đổi.
 
 Dán phần **TÓM TẮT** in ra từ `src/check_submission.py`:
 
