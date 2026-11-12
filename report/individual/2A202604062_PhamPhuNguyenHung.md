@@ -55,7 +55,14 @@ Mỗi điểm bạn phân vân một dòng, nhất là phân vân giữa `v = 1`
 Đi từ ảnh cuối về ảnh đầu. 5 ảnh người (ít nhất 2 ảnh `back` hoặc `crowd`) và 3 ảnh mặt. Ít nhất 8 dòng, kể cả dòng `ok`. Ghi lỗi trước, sửa sau.
 
 Mã lỗi dùng đúng một trong: `lr_swap`, `vis_flag`, `position`, `missing`, `extra`, `ok`.
+ok
+ok
 không có lỗi phát hiện thêm, chỉ phát hiện sửa nhẹ phần ảnh 3 thôi
+ok
+ok
+ok
+ok
+ok
 
 Tổng hợp số lỗi theo mã: 0
 
